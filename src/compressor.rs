@@ -99,8 +99,8 @@ pub(crate) fn decompress(bytes: Vec<u8>, compressor: Compressor) -> Result<Vec<u
             decoder.read_to_end(&mut out)?;
         },
         Compressor::Xz => {
-            let mut decoder = XzDecoder::new(Cursor::new(bytes));
-            decoder.read_to_end(&mut out)?;
+            println!("{:02x?}", &bytes[..40]);
+            lzma_rs::xz_decompress(&mut Cursor::new(bytes), &mut out).unwrap();
         },
         _ => return Err(SquashfsError::UnsupportedCompression(compressor)),
     }
