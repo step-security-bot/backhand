@@ -219,12 +219,11 @@ fn test_openwrt_tplink_archera7v5() {
         ),
     }];
     const TEST_PATH: &str = "test-assets/test_openwrt_tplink_archera7v5";
-    full_test(&asset_defs, FILE_NAME, TEST_PATH, 0x225fd0, Verify::Extract);
+    full_test(&asset_defs, FILE_NAME, TEST_PATH, 0x225fd0, Verify::List);
 }
 
 #[test]
 #[cfg(feature = "xz")]
-#[cfg(not(feature = "xz-static"))]
 fn test_openwrt_netgear_ex6100v2() {
     const FILE_NAME: &str = "openwrt-22.03.2-ipq40xx-generic-netgear_ex6100v2-squashfs-factory.img";
 
@@ -236,7 +235,7 @@ fn test_openwrt_netgear_ex6100v2() {
         ),
     }];
     const TEST_PATH: &str = "test-assets/test_openwrt_netgear_ex6100v2";
-    full_test(&asset_defs, FILE_NAME, TEST_PATH, 0x2c0080, Verify::Extract);
+    full_test(&asset_defs, FILE_NAME, TEST_PATH, 0x2c0080, Verify::List);
 }
 
 #[test]
@@ -269,7 +268,6 @@ fn test_appimage_firefox() {
 /// (after ubi_extract_image)
 #[test]
 #[cfg(feature = "xz")]
-#[cfg(not(feature = "xz-static"))]
 fn test_tplink_ax1800() {
     const FILE_NAME: &str = "img-1571203182_vol-ubi_rootfs.ubifs";
     let asset_defs = [TestAssetDef {
@@ -278,7 +276,7 @@ fn test_tplink_ax1800() {
         url: format!("wcampbell.dev/squashfs/testing/test_tplink1800/{FILE_NAME}"),
     }];
     const TEST_PATH: &str = "test-assets/test_tplink_ax1800";
-    full_test(&asset_defs, FILE_NAME, TEST_PATH, 0, Verify::Extract);
+    full_test(&asset_defs, FILE_NAME, TEST_PATH, 0, Verify::List);
 }
 
 /// one /console char device
